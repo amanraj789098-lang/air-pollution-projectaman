@@ -6,15 +6,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+/* ===== BASIC ===== */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
     font-family: Arial, sans-serif;
 }
-
+html{
+    scroll-behavior:smooth;
+}
 body{
-    background: linear-gradient(to bottom, #e6f7ff, #ffffff);
+    background:linear-gradient(to bottom,#e6f7ff,#ffffff);
     color:#222;
     overflow-x:hidden;
 }
@@ -28,83 +31,63 @@ body{
     height:100%;
     pointer-events:none;
     background:url("https://i.ibb.co/2kGJYtF/smoke.png") repeat-x;
-    animation: smokeMove 60s linear infinite;
+    animation:smokeMove 60s linear infinite;
     opacity:0.25;
     z-index:-1;
 }
-
 @keyframes smokeMove{
-    from{ background-position:0 0; }
-    to{ background-position:10000px 0; }
+    from{background-position:0 0;}
+    to{background-position:10000px 0;}
 }
 
-/* HEADER */
+/* ===== HEADER ===== */
 header{
     text-align:center;
     padding:30px 15px;
     background:#ffffff;
     box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    position:sticky;
+    top:0;
+    z-index:10;
 }
-
 header h1{
     font-size:42px;
-    letter-spacing:3px;
     color:#0099ff;
-    animation: glow 2s infinite alternate;
+    letter-spacing:3px;
 }
-
 header p{
-    margin-top:8px;
-    font-size:18px;
+    font-weight:bold;
+}
+.nav{
+    margin-top:15px;
+}
+.nav a{
+    margin:0 12px;
+    text-decoration:none;
+    color:#0099ff;
     font-weight:bold;
 }
 
-@keyframes glow{
-    from{ text-shadow:0 0 5px #00bfff; }
-    to{ text-shadow:0 0 20px #00bfff; }
-}
-
-/* HERO */
-.hero{
-    padding:50px 20px;
-    text-align:center;
-}
-
-.hero h2{
-    font-size:32px;
-    margin-bottom:10px;
-}
-
-.hero p{
-    font-size:18px;
-    max-width:700px;
-    margin:auto;
-}
-
-/* SECTION */
+/* ===== FULL PAGE SECTIONS ===== */
 .section{
-    padding:40px 20px;
+    min-height:100vh;
+    padding:70px 20px;
     max-width:900px;
     margin:auto;
 }
-
 .section h2{
     text-align:center;
-    margin-bottom:15px;
     color:#007acc;
+    margin-bottom:20px;
 }
-
 .section p{
-    text-align:center;
-    font-size:17px;
+    font-size:18px;
+    margin-bottom:15px;
+    line-height:1.6;
 }
-
-/* LIST */
 .section ul{
-    margin-top:20px;
     list-style:none;
 }
-
 .section ul li{
     background:#f2f9ff;
     padding:12px;
@@ -113,56 +96,52 @@ header p{
     border-radius:5px;
 }
 
-/* AQI BOX */
+/* ===== AQI ===== */
 .aqi-box{
     background:#f0fbff;
-    padding:35px 20px;
-    margin:40px 15px;
+    padding:40px 20px;
     border-radius:15px;
     box-shadow:0 10px 25px rgba(0,0,0,0.1);
     text-align:center;
 }
-
 .aqi-box input{
     padding:12px;
     width:240px;
     border-radius:5px;
     border:1px solid #ccc;
 }
-
 .aqi-box button{
     padding:12px 20px;
     margin-left:8px;
     border:none;
     border-radius:5px;
     background:#0099ff;
-    color:#fff;
+    color:white;
     cursor:pointer;
-    transition:0.3s;
 }
-
-.aqi-box button:hover{
-    background:#007acc;
-}
-
 #result{
     margin-top:20px;
     font-size:20px;
     font-weight:bold;
 }
 
-/* FOOTER */
+/* ===== FADE IN EFFECT ===== */
+.fade{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s ease;
+}
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ===== FOOTER ===== */
 footer{
     background:#ffffff;
     text-align:center;
     padding:20px;
-    margin-top:40px;
     box-shadow:0 -3px 10px rgba(0,0,0,0.1);
-}
-
-footer p{
-    font-size:14px;
-    margin:4px 0;
 }
 </style>
 </head>
@@ -174,92 +153,116 @@ footer p{
 <header>
     <h1>airlie</h1>
     <p>Clean Air Mission</p>
-
     <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="causes.html">Causes</a>
-        <a href="solutions.html">Solutions</a>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#causes">Causes</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#aqi">AQI</a>
     </nav>
 </header>
 
-<section class="hero">
-    <h2>Air Pollution Awareness</h2>
-    <p>
-        Air pollution is one of the biggest environmental threats.
-        This project helps people understand air quality and take action
-        for a cleaner and healthier future.
-    </p>
+<!-- PAGE 1 -->
+<section class="section fade" id="home">
+<h2>Introduction to Air Pollution</h2>
+<p>
+Air pollution is the contamination of air by harmful gases, smoke,
+dust and chemicals. It is one of the most serious environmental
+problems in the world today.
+</p>
+<p>
+Breathing polluted air causes asthma, lung diseases and heart problems.
+Clean air is essential for healthy life.
+</p>
 </section>
 
-<section class="section">
-    <h2>Why Air Pollution Awareness is Important?</h2>
-    <p>
-        Air pollution affects human health, animals, climate, and the environment.
-        Awareness helps people change habits and reduce pollution.
-    </p>
+<!-- PAGE 2 -->
+<section class="section fade" id="about">
+<h2>Why Air Pollution Awareness is Important</h2>
+<p>
+Many people are not aware of how daily activities increase air pollution.
+Awareness helps people understand the impact on health and environment.
+</p>
+<p>
+Educating students and communities is the first step towards a clean
+and sustainable future.
+</p>
 </section>
 
-<section class="section">
-    <h2>How Can We Reduce Air Pollution?</h2>
-    <ul>
-        <li>Use public transport and carpooling</li>
-        <li>Plant more trees</li>
-        <li>Use clean and renewable energy</li>
-        <li>Reduce factory and vehicle emissions</li>
-        <li>Spread awareness in schools and communities</li>
-    </ul>
+<!-- PAGE 3 -->
+<section class="section fade" id="causes">
+<h2>Causes and Effects of Air Pollution</h2>
+<ul>
+<li>Vehicle emissions</li>
+<li>Industrial smoke</li>
+<li>Burning garbage and plastics</li>
+<li>Firecrackers</li>
+<li>Deforestation</li>
+</ul>
+<p>
+Air pollution leads to global warming, acid rain, poor visibility
+and damage to crops and monuments.
+</p>
 </section>
 
-<!-- AQI CHECKER -->
+<!-- PAGE 4 -->
+<section class="section fade" id="solutions">
+<h2>Solutions and Awareness</h2>
+<p>
+Air pollution can be reduced by using public transport, renewable
+energy and planting more trees.
+</p>
+<p>
+Schools play an important role in spreading awareness about clean air.
+</p>
+</section>
+
+<!-- PAGE 5 AQI -->
+<section class="section fade" id="aqi">
+<h2>Check Air Quality Index (AQI)</h2>
 <div class="aqi-box">
-    <h2>Check Air Quality Index (AQI)</h2>
-    <p>Enter any city name to check live AQI</p><br>
-
-    <input type="text" id="city" placeholder="Enter city name">
-    <button onclick="checkAQI()">Check AQI</button>
-
-    <div id="result"></div>
+<input type="text" id="city" placeholder="Enter city name">
+<button onclick="checkAQI()">Check AQI</button>
+<div id="result"></div>
 </div>
+</section>
 
 <footer>
-    <p>Clean Air Mission</p>
-    <p>Air Pollution Awareness Project</p>
-    <p>Project by Aman | Class 9</p>
+<p>Clean Air Mission</p>
+<p>Air Pollution Awareness Project</p>
+<p>Project by Aman | Class 9</p>
 </footer>
 
 <script>
+/* FADE IN ON SCROLL */
+const fades = document.querySelectorAll('.fade');
+window.addEventListener('scroll', ()=>{
+    fades.forEach(fade=>{
+        const top = fade.getBoundingClientRect().top;
+        const height = window.innerHeight;
+        if(top < height - 100){
+            fade.classList.add('show');
+        }
+    });
+});
+
+/* AQI FUNCTION */
 function checkAQI(){
     const city = document.getElementById("city").value;
     const result = document.getElementById("result");
-
     if(city===""){
-        result.innerHTML="Please enter a city name";
+        result.innerHTML="Enter city name";
         return;
     }
-
-    const token = "0a1c12d807095eaca35a60c04140770e199440f3";
-    const url = `https://api.waqi.info/feed/${city}/?token=${token}`;
-
-    fetch(url)
-    .then(res => res.json())
-    .then(data => {
-        if(data.status === "ok"){
-            let aqi = data.data.aqi;
-            let status = "Good";
-
-            if(aqi > 50) status="Moderate";
-            if(aqi > 100) status="Unhealthy";
-            if(aqi > 200) status="Very Unhealthy";
-
-            result.innerHTML = 
-            `City: ${city.toUpperCase()}<br>AQI: ${aqi}<br>Status: ${status}`;
-        } else {
-            result.innerHTML="City not found!";
+    const token="0a1c12d807095eaca35a60c04140770e199440f3";
+    fetch(`https://api.waqi.info/feed/${city}/?token=${token}`)
+    .then(res=>res.json())
+    .then(data=>{
+        if(data.status==="ok"){
+            result.innerHTML=`AQI of ${city.toUpperCase()}: ${data.data.aqi}`;
+        }else{
+            result.innerHTML="City not found";
         }
-    })
-    .catch(()=>{
-        result.innerHTML="Error fetching AQI data";
     });
 }
 </script>
